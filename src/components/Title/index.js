@@ -1,4 +1,4 @@
-import { Box, Stack, Text } from "@chakra-ui/layout";
+import { Stack, Text } from "@chakra-ui/layout";
 import React from "react";
 export default function Title({ title }) {
  

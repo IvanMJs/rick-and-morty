@@ -28,9 +28,6 @@ export default function ShowCharacter(props) {
             <Text fontWeight="bold" fontSize="30px" color="white">
               {character.name}
             </Text>
-            {/* <Text fontSize="20px" color="white">
-            Created: {character.created}
-          </Text> */}
             <Text
               fontWeight="semibold"
               justify-content="center"
@@ -55,28 +52,28 @@ export default function ShowCharacter(props) {
 
             <Text color="white">
               <Text fontWeight="medium" color="rgb(158, 158, 158)">
-                Species:
+                Especie:
               </Text>
               {character.species}
             </Text>
 
             <Text color="white">
               <Text fontWeight="medium" color="rgb(158, 158, 158)">
-                Gender:{" "}
+                Sexo:
               </Text>
               {character.gender}
             </Text>
 
             <Text color="white">
               <Text fontWeight="medium" color="rgb(158, 158, 158)">
-                Origen:{" "}
+                Origen:
               </Text>
               {character.origin?.name}
             </Text>
 
             <Text color="white">
               <Text fontWeight="medium" color="rgb(158, 158, 158)">
-                Total episodes:
+                Episodios totales:
               </Text>
               {character.episode?.length}
             </Text>

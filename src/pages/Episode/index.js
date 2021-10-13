@@ -1,15 +1,13 @@
-import { Button } from "@chakra-ui/button";
-import { useColorMode } from "@chakra-ui/color-mode";
-import { Input } from "@chakra-ui/input";
-import { Box, Flex, SimpleGrid, Text } from "@chakra-ui/layout";
+import { Flex, SimpleGrid} from "@chakra-ui/layout";
 import axios from "axios";
 import React, { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import BoxCard from "../../components/Box";
+import InputSearch from "../../components/Input";
 import Title from "../../components/Title";
 
 export default function Episode() {
   const [episodes, setEpisodes] = useState([]);
-  const { colorMode } = useColorMode();
+
   const [search, setSearch] = useState("");
 
   useEffect(() => {
@@ -35,7 +33,8 @@ export default function Episode() {
   );
   return (
     <>
-      <Title title="Episode" />
+      <Title title="Episodios" />
+      <InputSearch Search={search} HandleSearch={handleSearch} />
       <Flex
         marginBottom="30px"
         display="grid"
@@ -43,17 +42,6 @@ export default function Episode() {
         justifyItems="center"
       >
         <Flex display="grid">
-          <Input
-            color={colorMode === "light" ? "black" : "white"}
-            margin="auto"
-            maxWidth="80"
-            textAlign="center"
-            placeholder="Name"
-            size="md"
-            type="text"
-            value={search}
-            onChange={handleSearch}
-          />
           <SimpleGrid
             templateColumns="repeat(2, 1fr)"
             gap={4}
@@ -61,31 +49,7 @@ export default function Episode() {
             columns={1}
             spacing={10}
           >
-            {filteredEpisode.map((ep, index) => (
-              <Box
-                key={index}
-                maxW="sm"
-                borderWidth="1px"
-                borderRadius="lg"
-                overflow="hidden"
-                bgColor="gray.600"
-              >
-                <Text
-                  mt="20px"
-                  marginBottom="30px"
-                  fontSize="20px"
-                  color="white"
-                >
-                  {ep.name}
-                </Text>
-
-                <Button mt="10px" marginBottom="20px">
-                  <Link to={{ pathname: "/showEpisode", state: ep.id }}>
-                    Character
-                  </Link>
-                </Button>
-              </Box>
-            ))}
+            <BoxCard Data={filteredEpisode} Path="/showEpisode" />
           </SimpleGrid>
         </Flex>
       </Flex>

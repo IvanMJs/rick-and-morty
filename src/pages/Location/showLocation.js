@@ -1,14 +1,14 @@
 import { Box, Flex, Text } from "@chakra-ui/layout";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-
-export default function ShowEpisode(props) {
-  const [episode, setEpisode] = useState([]);
+export default function ShowLocation(props) {
+  const [location, setLocation] = useState([]);
   useEffect(() => {
     axios
-      .get(`https://rickandmortyapi.com/api/episode/${props.location.state}`)
+      .get(`https://rickandmortyapi.com/api/location/${props.location.state}`)
       .then((res) => {
-        setEpisode(res.data);
+        setLocation(res.data);
+        console.log(res.data)
       });
   }, [props.location.state]);
 
@@ -20,7 +20,7 @@ export default function ShowEpisode(props) {
       justifyItems="center"
     >
       <Flex mt="30px" fontSize="8vh">
-        <Text>{episode.name}</Text>
+        <Text>{location.name}</Text>
       </Flex>
 
       <Flex mt="10">
@@ -39,21 +39,21 @@ export default function ShowEpisode(props) {
               fontWeight="medium"
               color="rgb(158, 158, 158)"
             >
-              Estreno:
+              Tipo:
             </Text>
-            {episode.air_date}
+            {location.type}
           </Text>
           <Text fontSize="3vh" color="white">
             <Text fontSize="6vh" fontWeight="medium" color="rgb(158, 158, 158)">
-              Episodio:
+              Dimension:
             </Text>
-            {episode.episode}
+            {location.dimension}
           </Text>
           <Text fontSize="3vh" color="white">
             <Text fontSize="6vh" fontWeight="medium" color="rgb(158, 158, 158)">
-              Personajes:
+              Residentes:
             </Text>
-            {episode.characters?.length}
+            {location.residents?.length}
           </Text>
         </Box>
       </Flex>

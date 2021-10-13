@@ -10,6 +10,8 @@ import Episode from "./pages/Episode";
 import Switch from "./components/Switch";
 import ShowEpisode from "./pages/Episode/showEpisode";
 import ShowCharacter from "./pages/Character/viewCharacter";
+import ShowLocation from "./pages/Location/showLocation";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -19,23 +21,25 @@ function App() {
           <Tabs variant="unstyled" shadow="sm" align="center">
             <TabList>
               <Tab>
-                <Link to="/episode">Episode</Link>
+                <Link to="/episode">Episodios</Link>
               </Tab>
               <Tab>
-                <Link to="/character">Character</Link>
+                <Link to="/character">Personajes</Link>
               </Tab>
               <Tab>
-                <Link to="/location">Location</Link>
+                <Link to="/location">Lugares</Link>
               </Tab>
               <Switch />
             </TabList>
           </Tabs>
         </Stack>
         <Route path="/showEpisode" component={ShowEpisode} />
+        <Route path="/showLocation" component={ShowLocation} />
         <Route path="/showCharacter" component={ShowCharacter} />
         <Route path="/episode" component={Episode} />
         <Route path="/character" component={Characters} />
         <Route path="/location" component={Location} />
+        <Route path="/" component={Home} />
       </Router>
     </>
   );
